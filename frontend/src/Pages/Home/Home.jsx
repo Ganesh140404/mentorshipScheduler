@@ -10,11 +10,23 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getIsLoggedIn } from "../../redux/slices/User";
 import { IconLink } from "@tabler/icons-react";
-
+import Service from "../../utils/http";
+import { useEffect } from "react";
+const service = new Service
+const getProfile = async (req, res) => {
+  try {
+    const response = await service.get("mentor/profile")
+    console.log(response)
+  } catch (error) {
+    console.log(error)
+  }
+}
 const Home = () => {
   const isLoggedIn = useSelector(getIsLoggedIn);
   const navigate = useNavigate();
-
+  useEffect(() => {
+    getProfile();
+  }, [])
   return (
     <div
       style={{
@@ -58,7 +70,7 @@ const Home = () => {
 
           <Text
             size="xl"
-fw={700}
+            fw={700}
             style={{
               color: "#f1f1f1",
               marginTop: "0.8rem",
@@ -66,7 +78,7 @@ fw={700}
               fontWeight: 400,
             }}
           >
-            
+
           </Text>
 
           <Button
