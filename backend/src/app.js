@@ -7,6 +7,8 @@ import morgan from "morgan"; // Import morgan
 import connectDB from "./db/dbConnect.js";
 import { config } from "./config.js";
 import authRouter from "./routes/authRouter.js";
+import slotRouter from "./routes/slotRouter.js";
+import mentorRouter from "./routes/mentorRouter.js";
 const app = express();
 
 // middlewares
@@ -30,6 +32,9 @@ connectDB();
 
 
 app.use("/api/auth", authRouter);
+app.use("/api/slot", slotRouter);
+app.use("/api/mentor", mentorRouter)
+
 
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
