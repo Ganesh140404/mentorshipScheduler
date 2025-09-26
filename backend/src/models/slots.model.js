@@ -6,7 +6,7 @@
 // requests[[]]
 // capacity
 // }
-import { Model, Schema,model  } from "mongoose";
+import { model, Schema  } from "mongoose";
 const slotSchema=new Schema({
         userId: { type: Schema.Types.ObjectId, ref: "user", default: null },
 
@@ -33,4 +33,4 @@ const slotSchema=new Schema({
         required:true
     }
 })
-export const Slot=Model('slot',slotSchema)
+export const Slot=model('slot',slotSchema)

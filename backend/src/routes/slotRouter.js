@@ -5,7 +5,7 @@ import { authMiddleware } from "../middlewares/authMiddleware.js";
 const slotRouter = Router();
 
 slotRouter.post("",authMiddleware,  createSession);
-slotRouter.pogetst("",authMiddleware,  createSession);
+slotRouter.post("",authMiddleware,  createSession);
 
 
 
